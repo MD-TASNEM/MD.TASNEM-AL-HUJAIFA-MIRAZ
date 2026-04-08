@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MD. Tasnem Al-Hujaifa Miraz | Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>মো: তাসনিম আল-হুজাইফা মিরাজ | পূর্ণাঙ্গ জীবনবৃত্তান্ত</title>
+
+<link rel="icon" type="image/jpeg" href="MD_TASNEM.jpg">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
   --bg:#080d1a;
   --bg2:#0e1525;
-  --bg3:#162035;
   --card:#111827;
   --gold:#e8b86d;
   --gold2:#c9954a;
@@ -18,8 +22,9 @@
   --cyan2:#0ea5e9;
   --text:#f0f4ff;
   --muted:#8896b3;
-  --border:rgba(255,255,255,0.07);
-  --border2:rgba(232,184,109,0.25);
+  --border:rgba(255,255,255,0.08);
+  --glow-gold:0 0 25px rgba(232,184,109,0.4);
+  --glow-cyan:0 0 25px rgba(56,189,248,0.4);
 }
 html{scroll-behavior:smooth}
 body{
@@ -30,839 +35,331 @@ body{
   line-height:1.7;
   overflow-x:hidden;
 }
-
-/* Scrollbar */
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--gold2);border-radius:2px}
-
-/* BG Stars */
 body::before{
   content:'';
   position:fixed;
   inset:0;
-  background:
-    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(56,189,248,0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(232,184,109,0.05) 0%, transparent 60%);
+  background:radial-gradient(circle at 20% 30%, rgba(56,189,248,0.08) 0%, transparent 50%),
+             radial-gradient(circle at 80% 70%, rgba(232,184,109,0.07) 0%, transparent 50%);
   pointer-events:none;
-  z-index:0;
+  z-index:-1;
 }
-
-/* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:999;
-  padding:.9rem 2rem;
-  background:rgba(8,13,26,0.88);
-  backdrop-filter:blur(16px);
+  padding:0.8rem 2rem;
+  background:rgba(8,13,26,0.95);
+  backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
   display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;
 }
 .nav-logo{
   font-family:'Playfair Display',serif;
-  font-size:1.2rem;font-weight:700;
-  color:var(--gold);letter-spacing:.5px;
+  font-size:1.2rem;font-weight:900;
+  color:var(--gold);letter-spacing:1px;
 }
-.nav-links{display:flex;gap:1.75rem}
+.nav-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
 .nav-links a{
-  font-size:13px;color:var(--muted);
-  text-decoration:none;letter-spacing:.5px;
-  font-weight:500;text-transform:uppercase;
-  transition:color .2s;
+  color:var(--muted);text-decoration:none;font-weight:500;
+  font-size:12px;letter-spacing:1px;
+  transition:all .3s;
 }
-.nav-links a:hover{color:var(--gold)}
-.nav-menu{display:none;cursor:pointer;flex-direction:column;gap:5px}
-.nav-menu span{width:22px;height:2px;background:var(--muted);border-radius:1px;transition:.3s}
-
-/* HERO */
+.nav-links a:hover{color:var(--gold);text-shadow: var(--glow-gold);}
 .hero{
   min-height:100vh;
   display:flex;align-items:center;
-  padding:7rem 2rem 4rem;
-  position:relative;overflow:hidden;
+  padding:6rem 2rem 3rem;
+  position:relative;
 }
-.hero-inner{
-  max-width:960px;margin:0 auto;width:100%;
-  position:relative;z-index:1;
-}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
 .hero-eyebrow{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:rgba(56,189,248,0.08);
-  border:1px solid rgba(56,189,248,0.2);
-  border-radius:100px;padding:.35rem 1rem;
-  font-size:11px;color:var(--cyan);
-  letter-spacing:2px;text-transform:uppercase;
-  margin-bottom:1.75rem;
-  animation:fadeUp .8s ease both;
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:rgba(56,189,248,0.1);
+  border:1px solid rgba(56,189,248,0.3);
+  padding:.4rem 1.2rem;border-radius:50px;
+  font-size:12px;color:var(--cyan);
+  margin-bottom:1.5rem;
 }
-.hero-eyebrow::before{
-  content:'';width:6px;height:6px;
-  background:var(--cyan);border-radius:50%;
-  animation:pulse 2s infinite;
-}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
-
 .hero h1{
   font-family:'Playfair Display',serif;
-  font-size:clamp(2.2rem,6vw,4.5rem);
+  font-size:clamp(2.8rem,7vw,5rem);
   font-weight:900;line-height:1.1;
-  margin-bottom:1rem;
-  animation:fadeUp .8s .1s ease both;
 }
-.hero h1 .line2{color:var(--gold)}
-.hero h1 .line3{
-  font-size:clamp(1.2rem,3vw,2rem);
-  font-weight:400;color:var(--muted);
-  font-style:italic;display:block;
-  margin-top:.3rem;
-}
-.hero-desc{
-  color:var(--muted);font-size:1rem;
-  max-width:520px;margin-bottom:2.5rem;
-  animation:fadeUp .8s .2s ease both;
-  line-height:1.8;
-}
-.hero-btns{
-  display:flex;gap:1rem;flex-wrap:wrap;
-  margin-bottom:3.5rem;
-  animation:fadeUp .8s .3s ease both;
-}
-.btn{
-  padding:.7rem 1.75rem;border-radius:8px;
-  font-size:13px;font-weight:600;cursor:pointer;
-  text-decoration:none;display:inline-flex;
-  align-items:center;gap:.5rem;
-  letter-spacing:.5px;text-transform:uppercase;
-  transition:.25s;border:none;font-family:'Outfit',sans-serif;
-}
-.btn-gold{background:var(--gold);color:#0a0d15}
-.btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
-.btn-ghost{
-  background:transparent;color:var(--cyan);
-  border:1px solid rgba(56,189,248,0.35);
-}
-.btn-ghost:hover{background:rgba(56,189,248,0.08);transform:translateY(-2px)}
-
-.hero-stats{
-  display:flex;gap:3rem;flex-wrap:wrap;
-  animation:fadeUp .8s .4s ease both;
-}
-.stat{border-left:2px solid var(--border2);padding-left:1rem}
-.stat-num{
-  font-family:'Playfair Display',serif;
-  font-size:2rem;font-weight:700;
-  color:var(--gold);line-height:1;
-  margin-bottom:.2rem;
-}
-.stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
-
-/* Decorative ring */
-.hero-deco{
-  position:absolute;right:-80px;top:50%;
-  transform:translateY(-50%);
-  width:500px;height:500px;
-  border:1px solid rgba(232,184,109,0.07);
-  border-radius:50%;
-  animation:spin 30s linear infinite;
-}
-.hero-deco::before{
-  content:'';position:absolute;
-  inset:40px;
-  border:1px solid rgba(56,189,248,0.06);
-  border-radius:50%;
-}
-.hero-deco::after{
-  content:'';position:absolute;
-  inset:100px;
-  border:1px dashed rgba(232,184,109,0.1);
-  border-radius:50%;
-}
-@keyframes spin{from{transform:translateY(-50%) rotate(0deg)}to{transform:translateY(-50%) rotate(360deg)}}
-
-/* SECTIONS */
-.section{padding:5rem 2rem;position:relative;z-index:1}
-.container{max-width:960px;margin:0 auto}
-.sec-header{margin-bottom:3rem}
-.sec-tag{
-  font-size:10px;color:var(--cyan);
-  letter-spacing:3px;text-transform:uppercase;
-  font-weight:600;margin-bottom:.5rem;
-}
+.typing{font-size:1.3rem;color:var(--cyan);font-weight:500;min-height:70px;}
+.cursor{display:inline-block;width:4px;height:1.1em;background:var(--cyan);vertical-align:middle;animation:blink 0.7s infinite;}
+@keyframes blink{50%{opacity:0}}
+.section{padding:5rem 2rem;position:relative}
+.container{max-width:1200px;margin:0 auto}
 .sec-title{
   font-family:'Playfair Display',serif;
-  font-size:clamp(1.6rem,4vw,2.4rem);
-  font-weight:700;line-height:1.2;
-  margin-bottom:.5rem;
-}
-.sec-line{
-  width:48px;height:3px;
+  font-size:clamp(1.8rem,4vw,2.5rem);
+  font-weight:700;
+  margin-bottom:2rem;
   background:linear-gradient(to right,var(--gold),var(--cyan));
-  border-radius:2px;margin-top:.75rem;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  border-left:4px solid var(--gold);
+  padding-left:1rem;
 }
-hr.divider{border:none;border-top:1px solid var(--border);margin:0}
-
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:2fr 1fr;gap:2.5rem;align-items:start}
-.about-text{color:var(--muted);line-height:1.9;font-size:.97rem}
-.about-text p{margin-bottom:1rem}
-.about-cards{display:flex;flex-direction:column;gap:1rem}
-.info-card{
+.card{
   background:var(--card);
   border:1px solid var(--border);
-  border-radius:12px;padding:1.1rem;
-  transition:border-color .2s;
+  border-radius:24px;
+  padding:1.8rem;
+  transition:all .4s cubic-bezier(0.4,0,0.2,1);
+  box-shadow:0 10px 30px -10px rgba(0,0,0,0.3);
 }
-.info-card:hover{border-color:var(--border2)}
-.info-card-label{
-  font-size:10px;color:var(--gold);
-  letter-spacing:2px;text-transform:uppercase;
-  font-weight:600;margin-bottom:.35rem;
+.card:hover{
+  transform:translateY(-8px);
+  border-color:var(--gold);
+  box-shadow:var(--glow-gold);
 }
-.info-card-val{font-size:.88rem;color:var(--text)}
-
-/* EDUCATION */
-.timeline{position:relative;padding-left:2.5rem}
-.timeline::before{
-  content:'';position:absolute;
-  left:.9rem;top:8px;bottom:8px;
-  width:1px;
-  background:linear-gradient(to bottom,var(--cyan),var(--gold),transparent);
-}
-.tl-item{
-  position:relative;margin-bottom:2.25rem;
-  opacity:0;transform:translateX(-20px);
-  transition:.6s ease;
-}
-.tl-item.visible{opacity:1;transform:translateX(0)}
-.tl-dot{
-  position:absolute;left:-1.67rem;top:.45rem;
-  width:12px;height:12px;border-radius:50%;
-  background:var(--gold);
-  border:2px solid var(--bg);
-  box-shadow:0 0 12px rgba(232,184,109,0.5);
-}
-.tl-year{
-  font-size:11px;color:var(--cyan);
-  font-weight:600;letter-spacing:1px;
-  margin-bottom:.3rem;
-}
-.tl-degree{font-weight:600;font-size:1rem;margin-bottom:.25rem}
-.tl-inst{font-size:.85rem;color:var(--muted)}
-.tl-result{
-  display:inline-block;
-  background:rgba(232,184,109,0.1);
-  border:1px solid rgba(232,184,109,0.2);
-  color:var(--gold);border-radius:6px;
-  padding:.15rem .65rem;font-size:11px;
-  margin-top:.4rem;font-weight:600;
-}
-
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-.skill-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:12px;padding:1.1rem;
-  transition:border-color .25s,transform .25s;
-}
-.skill-card:hover{border-color:var(--border2);transform:translateY(-3px)}
-.skill-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.7rem}
-.skill-name{font-size:.9rem;font-weight:500}
-.skill-pct{font-size:.82rem;color:var(--gold);font-weight:700}
-.skill-bar{height:4px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden}
-.skill-fill{height:100%;border-radius:2px;width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
-.sf-cyan{background:linear-gradient(to right,var(--cyan),var(--cyan2))}
-.sf-gold{background:linear-gradient(to right,var(--gold),var(--gold2))}
-.sf-purple{background:linear-gradient(to right,#a78bfa,#7c3aed)}
-.sf-green{background:linear-gradient(to right,#34d399,#059669)}
-.sf-rose{background:linear-gradient(to right,#fb7185,#e11d48)}
-
-.skill-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
-.stag{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:6px;padding:.3rem .75rem;
-  font-size:12px;color:var(--muted);
-}
-
-/* PROJECTS */
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.25rem}
-.proj-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:14px;padding:1.4rem;
-  transition:border-color .25s,transform .25s;
-  position:relative;overflow:hidden;
-}
-.proj-card::before{
-  content:'';position:absolute;
-  top:0;left:0;right:0;height:2px;
-  background:linear-gradient(to right,var(--cyan),var(--gold));
-  transform:scaleX(0);transition:.3s;transform-origin:left;
-}
-.proj-card:hover::before{transform:scaleX(1)}
-.proj-card:hover{border-color:rgba(232,184,109,0.2);transform:translateY(-4px)}
-.proj-num{
-  font-family:'Playfair Display',serif;
-  font-size:2.5rem;font-weight:900;
-  color:rgba(255,255,255,0.04);
-  position:absolute;top:.5rem;right:1rem;
-  line-height:1;
-}
-.proj-tag-badge{
-  display:inline-block;
-  background:rgba(56,189,248,0.1);
-  border:1px solid rgba(56,189,248,0.2);
-  color:var(--cyan);border-radius:6px;
-  padding:.2rem .7rem;font-size:11px;
-  margin-bottom:.9rem;font-weight:500;
-}
-.proj-title{font-weight:600;font-size:1rem;margin-bottom:.5rem}
-.proj-desc{color:var(--muted);font-size:.86rem;line-height:1.7;margin-bottom:1rem}
-.proj-techs{display:flex;flex-wrap:wrap;gap:.4rem}
-.ptag{
-  background:rgba(255,255,255,0.05);
-  border-radius:4px;padding:.15rem .55rem;
-  font-size:11px;color:var(--muted);
-}
-
-/* TRAINING */
-.training-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:14px;padding:1.75rem;
-  display:flex;gap:1.5rem;align-items:flex-start;
-  max-width:600px;
-  transition:border-color .2s;
-}
-.training-card:hover{border-color:var(--border2)}
-.training-icon{
-  width:48px;height:48px;border-radius:12px;
-  background:rgba(232,184,109,0.1);
-  border:1px solid rgba(232,184,109,0.2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;flex-shrink:0;
-}
-.training-badge{
-  display:inline-block;
-  background:rgba(52,211,153,0.1);
-  border:1px solid rgba(52,211,153,0.2);
-  color:#34d399;border-radius:6px;
-  padding:.15rem .65rem;font-size:11px;
-  margin-bottom:.5rem;font-weight:500;
-}
-.training-title{font-weight:600;font-size:1rem;margin-bottom:.4rem}
-.training-items{list-style:none;padding:0}
-.training-items li{
-  font-size:.85rem;color:var(--muted);
-  padding:.2rem 0;display:flex;align-items:center;gap:.5rem;
-}
-.training-items li::before{
-  content:'';width:4px;height:4px;
-  background:var(--cyan);border-radius:50%;flex-shrink:0;
-}
-
-/* LANGUAGES */
-.lang-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
-.lang-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:12px;padding:1.25rem;text-align:center;
-  transition:border-color .25s,transform .25s;
-}
-.lang-card:hover{border-color:var(--border2);transform:translateY(-3px)}
-.lang-flag{font-size:2rem;margin-bottom:.6rem;display:block}
-.lang-name{font-weight:600;font-size:.95rem;margin-bottom:.25rem}
-.lang-level{font-size:.8rem;color:var(--cyan)}
-.lang-dots{display:flex;justify-content:center;gap:.3rem;margin-top:.6rem}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--border)}
-.dot.fill{background:var(--gold)}
-
-/* QUALITIES */
-.qual-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
-.qual-item{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:12px;padding:1.1rem;
-  display:flex;align-items:flex-start;gap:.75rem;
-  transition:border-color .2s;
-}
-.qual-item:hover{border-color:var(--border2)}
-.qual-icon{
-  width:32px;height:32px;border-radius:8px;
-  background:rgba(56,189,248,0.1);
-  display:flex;align-items:center;justify-content:center;
-  font-size:14px;flex-shrink:0;
-}
-.qual-text{font-size:.88rem;color:var(--muted);line-height:1.5}
-
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:2rem}
-.contact-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:12px;padding:1.1rem;
-  display:flex;align-items:center;gap:.9rem;
-  text-decoration:none;color:inherit;
-  transition:border-color .25s,transform .25s;
-}
-.contact-card:hover{border-color:var(--border2);transform:translateY(-3px)}
-.ci{
-  width:40px;height:40px;border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;flex-shrink:0;
-}
-.ci.mail{background:rgba(56,189,248,0.1)}
-.ci.phone{background:rgba(232,184,109,0.1)}
-.ci.wa{background:rgba(52,211,153,0.1)}
-.ci.gh{background:rgba(255,255,255,0.06)}
-.ci.li{background:rgba(56,189,248,0.1)}
-.ci.fb{background:rgba(96,165,250,0.1)}
-.c-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:.2rem}
-.c-val{font-size:.88rem;font-weight:500;word-break:break-all}
-
-/* FOOTER */
-footer{
-  padding:2.5rem 2rem;
-  border-top:1px solid var(--border);
-  text-align:center;position:relative;z-index:1;
-}
-.footer-name{
-  font-family:'Playfair Display',serif;
-  font-size:1.1rem;color:var(--gold);
-  margin-bottom:.5rem;font-weight:700;
-}
-.footer-copy{font-size:12px;color:var(--muted)}
-.footer-verse{
-  font-size:12px;color:rgba(232,184,109,0.5);
-  margin-top:1rem;font-style:italic;
-  max-width:500px;margin-left:auto;margin-right:auto;
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(28px)}
-  to{opacity:1;transform:translateY(0)}
-}
-.reveal{opacity:0;transform:translateY(30px);transition:.65s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
-/* MOBILE */
-@media(max-width:768px){
-  nav{padding:.75rem 1.25rem}
-  .nav-links{display:none}
-  .nav-menu{display:flex}
-  .mobile-menu{
-    position:fixed;top:0;left:0;right:0;bottom:0;
-    background:var(--bg2);z-index:998;
-    display:flex;flex-direction:column;
-    align-items:center;justify-content:center;
-    gap:2rem;
-  }
-  .mobile-menu a{
-    font-size:1.4rem;color:var(--text);
-    text-decoration:none;font-weight:500;
-  }
-  .mobile-menu .close{
-    position:absolute;top:1.5rem;right:1.5rem;
-    font-size:1.5rem;color:var(--muted);cursor:pointer;
-  }
-  .about-grid{grid-template-columns:1fr}
-  .hero-deco{display:none}
-  .hero{padding:6rem 1.25rem 3rem}
-  .section{padding:3.5rem 1.25rem}
-  .hero-stats{gap:1.5rem}
-  .training-card{flex-direction:column}
-}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.8rem;}
+.table-cv{width:100%;border-collapse:collapse;color:var(--muted);}
+.table-cv td,.table-cv th{padding:0.8rem;border-bottom:1px solid var(--border);text-align:left;}
+.table-cv th{color:var(--gold);font-weight:600;}
+.badge{background:rgba(56,189,248,0.15);color:var(--cyan);padding:0.2rem 0.7rem;border-radius:30px;font-size:0.75rem;display:inline-block;}
+.skill-tag{background:rgba(232,184,109,0.12);border:1px solid rgba(232,184,109,0.3);padding:0.3rem 1rem;border-radius:40px;font-size:0.8rem;display:inline-block;margin:0.25rem;}
+.routine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;}
+.routine-item{background:rgba(255,255,255,0.03);border-radius:20px;padding:1rem;border-left:3px solid var(--cyan);}
+.social-icons a{color:var(--muted);font-size:1.5rem;margin:0 0.7rem;transition:0.3s;display:inline-block;}
+.social-icons a:hover{color:var(--gold);transform:translateY(-3px);}
+.btn-gold{background:var(--gold);color:#0a0d15;padding:0.8rem 1.8rem;border-radius:40px;font-weight:600;text-decoration:none;display:inline-block;transition:0.3s;}
+.btn-outline{border:1px solid var(--cyan);color:var(--cyan);padding:0.8rem 1.8rem;border-radius:40px;font-weight:600;text-decoration:none;display:inline-block;}
+@media (max-width:768px){.nav-links{display:none} nav{justify-content:center} .section{padding:3rem 1rem}}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">MD. Tasnem</div>
+  <div class="nav-logo">MD. TASNEM AL-HUJAIFA</div>
   <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="nav-menu" onclick="openMenu()">
-    <span></span><span></span><span></span>
+    <a href="#about">পরিচিতি</a><a href="#journey">জীবনবৃত্তান্ত</a><a href="#cv">CV</a>
+    <a href="#education">শিক্ষা</a><a href="#skills">দক্ষতা</a><a href="#routine">রুটিন</a>
+    <a href="#partner">জীবন সঙ্গী</a><a href="#contact">যোগাযোগ</a>
   </div>
 </nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu" style="display:none">
-  <span class="close" onclick="closeMenu()">✕</span>
-  <a href="#about" onclick="closeMenu()">About</a>
-  <a href="#education" onclick="closeMenu()">Education</a>
-  <a href="#skills" onclick="closeMenu()">Skills</a>
-  <a href="#projects" onclick="closeMenu()">Projects</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
-</div>
-
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-deco"></div>
+<section class="hero" id="home">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Available for Work</div>
-    <h1>
-      MD. Tasnem<br>
-      <span class="line2">Al-Hujaifa Miraz</span>
-      <span class="line3">Web Developer &amp; Arabic Studies Scholar</span>
-    </h1>
-    <p class="hero-desc">
-      Aspiring full-stack developer from Kushtia, Bangladesh. Currently pursuing B.A. in Arabic Language &amp; Literature at Islamic University while building modern web experiences.
-    </p>
-    <div class="hero-btns">
-      <a href="mailto:tasnimmuhammad51@gmail.com" class="btn btn-gold">✉ Contact Me</a>
-      <a href="#projects" class="btn btn-ghost">View Projects ↓</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">5.00</div>
-        <div class="stat-label">Alim GPA</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">3+</div>
-        <div class="stat-label">Projects</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Languages</div>
-      </div>
+    <div class="hero-eyebrow"><i class="fas fa-quran"></i> রাব্বি জিদনি ইলমা</div>
+    <h1>মো: তাসনিম আল-হুজাইফা মিরাজ</h1>
+    <div class="typing"><span id="typed"></span><span class="cursor">|</span></div>
+    <p style="max-width:600px;margin-top:1rem;color:var(--muted);">ওয়েব ডেভেলপার · আরবি সাহিত্য অনার্স শিক্ষার্থী , দাঈ , ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া, বাংলাদেশ ।</p>
+    <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="mailto:tasnimmuhammad51@gmail.com" class="btn-gold"><i class="fas fa-envelope"></i> পেশাদার যোগাযোগ</a>
+      <a href="#cv" class="btn-outline"><i class="fas fa-file-alt"></i> পূর্ণ সিভি দেখুন</a>
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- ABOUT -->
+<!-- ABOUT + সংক্ষিপ্ত পরিচিতি -->
 <section class="section" id="about">
   <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-tag">Who I am</div>
-      <div class="sec-title">About Me</div>
-      <div class="sec-line"></div>
-    </div>
-    <div class="about-grid reveal">
-      <div>
-        <div class="about-text">
-          <p>আমি মো: তাসনিম আল-হুজাইফা মিরাজ — কুষ্টিয়া, বাংলাদেশের একজন উৎসাহী Web Developer এবং ইসলামী বিশ্ববিদ্যালয়ের আরবি ভাষা ও সাহিত্য বিভাগের ২য় বর্ষের শিক্ষার্থী।</p>
-          <p>আমি HTML, CSS, JavaScript এবং React দিয়ে সুন্দর ওয়েবসাইট তৈরি করতে ভালোবাসি। Programming Hero-তে সম্পূর্ণ Web Development Course সম্পন্ন করেছি।</p>
-          <p>আমার লক্ষ্য হলো প্রযুক্তি ও ইসলামি মূল্যবোধকে একত্রিত করে সমাজের কল্যাণে কাজ করা।</p>
-        </div>
-      </div>
-      <div class="about-cards">
-        <div class="info-card">
-          <div class="info-card-label">Location</div>
-          <div class="info-card-val">Kushtia, Bangladesh</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-label">Email</div>
-          <div class="info-card-val">tasnimmuhammad51@gmail.com</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-label">Phone</div>
-          <div class="info-card-val">+880 1330-989762</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-label">Status</div>
-          <div class="info-card-val" style="color:#34d399">Available for Work</div>
-        </div>
-      </div>
+    <div class="sec-title">পরিচিতি / About Me</div>
+    <div class="card">
+      <p style="color:var(--text);font-size:1.05rem">মোঃ তাসনিম আল-হুজাইফা মিরাজ বরিশাল জেলায় জন্মগ্রহণ করেন। তিনি ছারছীনা দারুস সুন্নাত কামিল মাদ্রাসা থেকে অষ্টম শ্রেণী সম্পন্ন করেন। পরবর্তীতে তিনি ঝালকাঠি এন.এস. কামিল মাদ্রাসা থেকে দাখিল ও আলিম পরীক্ষায় উত্তীর্ণ হন। বর্তমানে তিনি কুষ্টিয়ার ইসলামী বিশ্ববিদ্যালয়ের আরবি ভাষা ও সাহিত্য বিভাগে অধ্যয়নরত। পাশাপাশি, তিনি ওয়েব ডেভেলপমেন্টে দক্ষ। তাঁর দক্ষতার ক্ষেত্রগুলোর মধ্যে রয়েছে—HTML, CSS, JavaScript, React,MongoDB,Firebase,NodeJS,Next.js, Git, GitHub এবং Tailwind CSS। তাঁর জীবনের লক্ষ্য হলো দ্বীনি জ্ঞান ও আধুনিক প্রযুক্তির সমন্বয়ের মাধ্যমে উম্মাহর সেবা করা।</p>
+      <div style="margin-top:1rem"><i class="fas fa-map-marker-alt" style="color:var(--gold)"></i> ঠিকানা:ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া, বাংলাদেশ । &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +8801330989762</div>
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- EDUCATION -->
-<section class="section" id="education">
+<!-- সম্পূর্ণ ব্যক্তিগত জীবনকথা (রুগ্ন মা, বাবা, মাদ্রাসা) -->
+<section class="section" id="journey" style="background:var(--bg2)">
   <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-tag">My journey</div>
-      <div class="sec-title">Education</div>
-      <div class="sec-line"></div>
-    </div>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">2023 – Present</div>
-        <div class="tl-degree">Bachelor of Arts (Ongoing)</div>
-        <div class="tl-inst">Islamic University, Kushtia — Dept. of Arabic Language &amp; Literature</div>
-        <span class="tl-result">2nd Year · In Progress</span>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">2020 – 2022</div>
-        <div class="tl-degree">Alim (Higher Secondary)</div>
-        <div class="tl-inst">Jhalokathi N. S. Kamil Madrasah, Jhalokathi</div>
-        <span class="tl-result">GPA: 5.00 · 2022</span>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">2018 – 2020</div>
-        <div class="tl-degree">Dakhil (Secondary)</div>
-        <div class="tl-inst">Jhalokathi N. S. Kamil Madrasah, Jhalokathi</div>
-        <span class="tl-result">GPA: 4.88 · 2020</span>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">2016 – 2018</div>
-        <div class="tl-degree">JDC (Junior)</div>
-        <div class="tl-inst">Sarsina Darus Sunnat Kamil Madrasah, Barishal</div>
-        <span class="tl-result">GPA: 4.28 · 2018</span>
+    <div class="sec-title">আমার জীবন বৃত্তান্ত 📜</div>
+    <div class="card">
+      <p style="line-height:1.9; color:var(--muted)">রুগ্ন মায়ের কোলে জন্মগ্রহণ করা রুগ্ন ছেলের জীবন যে এত দীর্ঘ হবে তা আল্লাহ ছাড়া কেইবা জানত? আল্লাহর অসীম দয়ায় এত বছর কেটেছে। মায়ের ইন্তিকাল, ফুফুর ছায়া, আব্বার সংসারের দায়িত্ব, মক্তব-মাদ্রাসার প্রতিটি স্তর পেরিয়ে আজ আমি ওয়েব ডেভেলপার ও দ্বীনের খাদেম হতে চাই। আমার আব্বা: স্বাধীনতার সময় জন্ম, অল্প বয়সে পিতৃহারা, নিজের উদ্যোগে সংসার পরিচালনা করেছেন। আম্মু: এক মহিয়সী নারী, গর্ভবতী অবস্থায় ইন্তিকাল করেন, রেখে যান আমাকে। তাদের স্মৃতি ও দোয়ায় আজ আমি এগিয়ে চলেছি। মক্তব থেকে হেফজ, দাখিল থেকে আলিম, সর্বোচ্চ নিষ্ঠার সাথে পড়াশোনা করেছি। আল্লাহর রহমতে আজ আমি ইসলাম ও প্রযুক্তির সেতুবন্ধ নির্মাণে সচেষ্ট।</p>
+      <div class="grid-2" style="margin-top:1.5rem">
+        <div><i class="fas fa-father"></i> <strong>আব্বার অবদান:</strong> সম্পত্তি রক্ষা, মাদ্রাসায় পড়ার সুযোগ ও আত্মনির্ভরতার শিক্ষা।</div>
+        <div><i class="fas fa-mother"></i> <strong>আম্মুর স্মৃতি:</strong> মায়ের কবরের পাশে ফরিয়াদ, যা আমাকে দ্বীনের পথে দৃঢ় করেছে।</div>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- SKILLS -->
-<section class="section" id="skills">
+<!-- সম্পূর্ণ CV (ব্যক্তিগত তথ্য, উদ্দেশ্য, শিক্ষা, প্রশিক্ষণ) -->
+<section class="section" id="cv">
   <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-tag">What I can do</div>
-      <div class="sec-title">Technical Skills</div>
-      <div class="sec-line"></div>
-    </div>
-    <div class="skills-grid reveal" id="skillGrid">
-      <div class="skill-card"><div class="skill-top"><span class="skill-name">HTML5</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill sf-cyan" data-w="90"></div></div></div>
-      <div class="skill-card"><div class="skill-top"><span class="skill-name">CSS3</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill sf-gold" data-w="85"></div></div></div>
-      <div class="skill-card"><div class="skill-top"><span class="skill-name">JavaScript / ES6</span><span class="skill-pct">72%</span></div><div class="skill-bar"><div class="skill-fill sf-purple" data-w="72"></div></div></div>
-      <div class="skill-card"><div class="skill-top"><span class="skill-name">React.js</span><span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill sf-cyan" data-w="60"></div></div></div>
-      <div class="skill-card"><div class="skill-top"><span class="skill-name">Tailwind CSS</span><span class="skill-pct">65%</span></div><div class="skill-bar"><div class="skill-fill sf-green" data-w="65"></div></div></div>
-      <div class="skill-card"><div class="skill-top"><span class="skill-name">Git &amp; GitHub</span><span class="skill-pct">68%</span></div><div class="skill-bar"><div class="skill-fill sf-rose" data-w="68"></div></div></div>
-    </div>
-    <div class="skill-tags reveal" style="margin-top:1.5rem">
-      <span class="stag">VS Code</span>
-      <span class="stag">Chrome DevTools</span>
-      <span class="stag">Node.js (Basic)</span>
-      <span class="stag">API Handling</span>
-      <span class="stag">Responsive Design</span>
-      <span class="stag">Arabic Literature</span>
+    <div class="sec-title">📄 Curriculum Vitae (পূর্ণ জীবনবৃত্তান্ত)</div>
+    <div class="grid-2">
+      <div class="card"><h3 style="color:var(--gold)"><i class="fas fa-user-astronaut"></i> ব্যক্তিগত তথ্য</h3>
+        <p><strong>নাম:</strong> মো: তাসনিম আল-হুজাইফা মিরাজ<br>
+        <strong>ঠিকানা:</strong>ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া, বাংলাদেশ ।<br>
+        <strong>ইমেইল:</strong> tasnimmuhammad51@gmail.com<br>
+        <strong>মোবাইল:</strong> +880 1330-989762, +8801732029902 (WhatsApp)</p>
+        <h3 style="margin-top:1rem;color:var(--cyan)">ক্যারিয়ার অবজেকটিভ</h3>
+        <p>আরবি ভাষা ও সাহিত্য এবং ওয়েব ডেভেলপমেন্টের সমন্বয়ে দ্বীনি প্রতিষ্ঠান ও সমাজের কল্যাণে কার্যকর ভূমিকা রাখা। আধুনিক প্রযুক্তি ব্যবহার করে ইসলামী কন্টেন্ট ও দাওয়ার প্ল্যাটফর্ম তৈরি করা।</p>
+      </div>
+      <div class="card"><h3 style="color:var(--gold)"><i class="fas fa-graduation-cap"></i> শিক্ষাগত যোগ্যতা</h3>
+        <table class="table-cv"><tr><th>পরীক্ষা</th><th>প্রতিষ্ঠান</th><th>ফলাফল/বছর</th></tr>
+        <tr><td>জেডিসি</td><td>সারসিনা দারু সুন্নাত কামিল মাদ্রাসা</td><td>4.28 (2018)</td></tr>
+        <tr><td>দাখিল</td><td>ঝালকাঠি এন এস কামিল মাদ্রাসা</td><td>4.88 (2020)</td></tr>
+        <tr><td>আলিম</td><td>ঝালকাঠি এন এস কামিল মাদ্রাসা</td><td>5.00 (2022)</td></tr>
+        <tr><td>অনার্স (চলমান)</td><td>ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া (আরবি ভাষা ও সাহিত্য)</td><td>৩ য় বর্ষ</td></tr></table>
+      </div>
+      <div class="card"><h3 style="color:var(--gold)"><i class="fas fa-laptop-code"></i> প্রশিক্ষণ ও কোর্স</h3>
+        <ul style="margin-left:1.2rem;color:var(--muted)"><li>ওয়েব ডেভেলপমেন্ট (Programming Hero) – HTML, CSS, JavaScript, React,MongoDB,Firebase,NodeJS,Next.js, Git, GitHub এবং Tailwind CSS।</li>
+        <li>রেসপনসিভ ডিজাইন, API হ্যান্ডলিং, প্রকল্পভিত্তিক কাজ (পোর্টফোলিও, ব্লগ, ই-কমার্স UI)</li>
+        <li>আরবি ভাষা ও সাহিত্যে উচ্চতর প্রশিক্ষণ (Islamic University)</li></ul>
+      </div>
+<div class="card">
+  <h3 style="color:var(--gold)"><i class="fas fa-chart-line"></i> দক্ষতা ও প্রযুক্তি</h3>
+  <div>
+    <span class="skill-tag">HTML5/CSS3</span>
+    <span class="skill-tag">JavaScript (ES6)</span>
+    <span class="skill-tag">React.js</span>
+    <span class="skill-tag">Next.js</span>
+    <span class="skill-tag">Node.js</span>
+    <span class="skill-tag)Node.js</span>
+    <span class="skill-tag">MongoDB</span>
+    <span class="skill-tag">Firebase</span>
+    <span class="skill-tag">Tailwind CSS</span>
+    <span class="skill-tag">Git/GitHub</span>
+    <span class="skill-tag">VS Code</span>
+  </div>
+  
+  <p style="margin-top:1rem">
+    <strong>ভাষা দক্ষতা:</strong> বাংলা (মাতৃভাষা), আরবি (একাডেমিক দক্ষতা), ইংরেজি (মাধ্যমিক), হিন্দি ও উর্দু (কথোপকথন/মিডিয়াম)
+  </p>
+  
+  <p>
+    <strong>ব্যক্তিগত গুণাবলী:</strong> দ্রুত শিখন ক্ষমতা, সমস্যা সমাধান, টিমওয়ার্ক, সময় ব্যবস্থাপনা ও আত্মশৃঙ্খলা।
+  </p>
+</div>
+      
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- PROJECTS -->
-<section class="section" id="projects">
+<!-- শিক্ষা প্রতিষ্ঠানের স্তরভিত্তিক অর্জন (মক্তব থেকে দাওয়াহ) -->
+<section class="section" id="education" style="background:var(--bg2)">
   <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-tag">My work</div>
-      <div class="sec-title">Projects</div>
-      <div class="sec-line"></div>
-    </div>
-    <div class="proj-grid">
-      <div class="proj-card reveal">
-        <div class="proj-num">01</div>
-        <div class="proj-tag-badge">Portfolio</div>
-        <div class="proj-title">Personal Portfolio Website</div>
-        <div class="proj-desc">A fully responsive and animated personal portfolio website showcasing my skills, education, and projects with smooth scroll animations.</div>
-        <div class="proj-techs">
-          <span class="ptag">HTML5</span><span class="ptag">CSS3</span><span class="ptag">JavaScript</span>
-        </div>
-      </div>
-      <div class="proj-card reveal">
-        <div class="proj-num">02</div>
-        <div class="proj-tag-badge">Blog</div>
-        <div class="proj-title">Islamic Blog UI</div>
-        <div class="proj-desc">A clean, reading-friendly blog interface for Islamic content with Arabic text support, dark/light mode, and fully responsive design.</div>
-        <div class="proj-techs">
-          <span class="ptag">React.js</span><span class="ptag">Tailwind CSS</span>
-        </div>
-      </div>
-      <div class="proj-card reveal">
-        <div class="proj-num">03</div>
-        <div class="proj-tag-badge">E-commerce</div>
-        <div class="proj-title">E-commerce UI</div>
-        <div class="proj-desc">A modern product listing and cart UI with dynamic interactions, filter functionality, and mobile-first responsive design approach.</div>
-        <div class="proj-techs">
-          <span class="ptag">React.js</span><span class="ptag">CSS3</span><span class="ptag">JavaScript</span>
-        </div>
-      </div>
-    </div>
+    <div class="sec-title">📖 শিক্ষাজীবনের মাইলফলক</div>
+    <div class="card"><div class="routine-grid">
+      <div class="routine-item"><strong>📚 মক্তব</strong><br>বয়াতিবাড়ী মসজিদ | যোগাযোগ দক্ষতা ১০%</div>
+      <div class="routine-item"><strong>⭐ নূরাণী</strong><br>ধারালিয়া নূরাণী | কুরআন পড়া ১০০%</div>
+      <div class="routine-item"><strong>🕋 হেফজ</strong><br>হাফেজী মাদ্রাসা | ৫ পারা অর্জন ৪০%</div>
+      <div class="routine-item"><strong>📖 ৫ম-৭ম</strong><br>খোদাবখসা দাখিল | স্বাভাবিক জীবন ৭০%</div>
+      <div class="routine-item"><strong>✨ ৮ম শ্রেণি</strong><br>ছারছীনা আলিয়া | আদব ও আখলাক ১০০%</div>
+      <div class="routine-item"><strong>🎓 দাখিল-আলিম</strong><br>ঝালকাঠি এন এস | বেসিক ইলম ও সংগঠন ১০০%</div>
+      <div class="routine-item"><strong>🏛️ অনার্স</strong><br>ইসলামী বিশ্ববিদ্যালয় | স্বাধীনতা ও গবেষণা ১০০%</div>
+      <div class="routine-item"><strong>🤝 দাওয়াহ</strong><br>আসসুন্নাহ ট্রাস্ট, DRTC | সফলতা ১০০%</div>
+    </div></div>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- TRAINING -->
-<section class="section" id="training">
+<!-- আদর্শ ও প্রভাব (আকিদা, ফিকহ, সংগঠন) -->
+<section class="section" id="ideals">
   <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-tag">Certifications</div>
-      <div class="sec-title">Training &amp; Courses</div>
-      <div class="sec-line"></div>
-    </div>
-    <div class="training-card reveal">
-      <div class="training-icon">💻</div>
-      <div>
-        <div class="training-badge">Completed</div>
-        <div class="training-title">Complete Web Development Course — Programming Hero</div>
-        <ul class="training-items">
-          <li>HTML, CSS, JavaScript, ES6+</li>
-          <li>React.js, Node.js (Basic), API Handling</li>
-          <li>Responsive Web Design, Git &amp; GitHub</li>
-          <li>Project-based Learning: Portfolio, Blog, E-commerce</li>
-        </ul>
-      </div>
+    <div class="sec-title">🌟 আদর্শ ও অনুপ্রেরণা</div>
+    <div class="grid-2">
+      <div class="card"><i class="fas fa-book-quran" style="font-size:2rem;color:var(--gold)"></i><h3 style="margin:0.5rem 0">আকিদা ও ফিকহ</h3><p>ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর রহ.</p>
+      <h3>রাজনৈতিক সংগঠন</h3><p>জামাতে ইসলামী, ইসলামী ছাত্রশিবির। আল্লামা মওদুদী রহ.</p></div>
+      <div class="card"><i class="fas fa-hand-peace"></i><h3>অরাজনৈতিক সংগঠন</h3><p>হেফাজতে ইসলাম (মুফতি হারুন ইজহার রহ.)<br>দাওয়াহ: ডা. জাকির নায়েক রহ.</p>
+      <h3>জীবনের লক্ষ্য</h3><p>“খাওয়া, কাপড়, আরাম, সৌন্দর্য ত্যাগ করে আল্লাহর দ্বীন প্রতিষ্ঠা এবং মসজিদের ইমামদের স্বনির্ভর করা।”</p></div>
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- LANGUAGES -->
-<section class="section" id="languages">
+<!-- দৈনিক রুটিন ও খাবার তালিকা -->
+<section class="section" id="routine">
   <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-tag">Communication</div>
-      <div class="sec-title">Languages</div>
-      <div class="sec-line"></div>
-    </div>
-    <div class="lang-grid reveal">
-      <div class="lang-card">
-        <span class="lang-flag">🇧🇩</span>
-        <div class="lang-name">বাংলা</div>
-        <div class="lang-level">Native Speaker</div>
-        <div class="lang-dots">
-          <div class="dot fill"></div><div class="dot fill"></div>
-          <div class="dot fill"></div><div class="dot fill"></div><div class="dot fill"></div>
-        </div>
+    <div class="sec-title">⏰ দৈনিক রুটিন ও খাদ্যাভ্যাস</div>
+    <div class="grid-2">
+      <div class="card"><h3 style="color:var(--cyan)"><i class="fas fa-utensils"></i> খাবার তালিকা</h3>
+        <p>🍯 সকাল: মধু + খেজুর + কিসমিস + বাদাম<br>🍽️ দুপুর: চিড়া + গোস্ত + মাছ + ডিম<br>🥛 রাত: দুধ + রুটি + সমজাতীয় খাবার</p>
+        <p style="margin-top:1rem"><i class="fas fa-dumbbell"></i> নিয়মিত মুতায়াআলা ও জিহাদের ট্রেনিং আছর থেকে এশা পর্যন্ত।</p>
       </div>
-      <div class="lang-card">
-        <span class="lang-flag">🇸🇦</span>
-        <div class="lang-name">Arabic</div>
-        <div class="lang-level">Academic Proficiency</div>
-        <div class="lang-dots">
-          <div class="dot fill"></div><div class="dot fill"></div>
-          <div class="dot fill"></div><div class="dot fill"></div><div class="dot"></div>
-        </div>
-      </div>
-      <div class="lang-card">
-        <span class="lang-flag">🇬🇧</span>
-        <div class="lang-name">English</div>
-        <div class="lang-level">Intermediate</div>
-        <div class="lang-dots">
-          <div class="dot fill"></div><div class="dot fill"></div>
-          <div class="dot fill"></div><div class="dot"></div><div class="dot"></div>
+      <div class="card"><h3 style="color:var(--cyan)"><i class="fas fa-clock"></i> দৈনন্দিন সময়সূচি</h3>
+        <div class="routine-grid" style="grid-template-columns:1fr">
+          <div class="routine-item">🌙 তাহাজ্জুদ: ৩:০০ – ৩:৩০ AM</div>
+          <div class="routine-item">📖 আরবী ভাষা শিক্ষা: ৩:৩০ – ফজর</div>
+          <div class="routine-item">🤲 কুরআন তিলাওয়াত: ফজর – ০৮:০০</div>
+          <div class="routine-item">📜 হাদিস অধ্যয়ন: ০৮:০০ – ১০:৩০</div>
+          <div class="routine-item">😴 খাবার ও বিশ্রাম: ১০:৩০ – ১২:০০</div>
+          <div class="routine-item">📚 ইসলামী সাহিত্য, আকিদা, তুলনামূলক ধর্ম: ১২:১৫ – ০১:১৫</div>
+          <div class="routine-item">🍽️ খাওয়া ও যোহর: ০১:১৫ – ০২:১৫</div>
+          <div class="routine-item">🇧🇩 বাংলা ভাষা শিক্ষা: ০২:১৫ – ০৩:১৫</div>
+          <div class="routine-item">🇬🇧 ইংরেজি ভাষা শিক্ষা: ০৩:১৫ – আছর</div>
+          <div class="routine-item">⚔️ মুতায়াআলা / ট্রেনিং: আছর – এশা</div>
+          <div class="routine-item">📝 দৈনিক পরীক্ষা ও মুহাসাবা: এশা – ০৩:০০ AM</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- QUALITIES -->
-<section class="section">
+<!-- আদর্শ জীবন সঙ্গী (বিস্তারিত) -->
+<section class="section" id="partner" style="background:var(--bg2)">
   <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-tag">Character</div>
-      <div class="sec-title">Personal Qualities</div>
-      <div class="sec-line"></div>
-    </div>
-    <div class="qual-grid reveal">
-      <div class="qual-item"><div class="qual-icon">⚡</div><div class="qual-text">Fast learner with strong problem-solving skills</div></div>
-      <div class="qual-item"><div class="qual-icon">🤝</div><div class="qual-text">Effective teamwork &amp; communication abilities</div></div>
-      <div class="qual-item"><div class="qual-icon">⏱</div><div class="qual-text">Skilled in time management &amp; self-discipline</div></div>
-      <div class="qual-item"><div class="qual-icon">📚</div><div class="qual-text">Strong academic background in Islamic sciences</div></div>
+    <div class="sec-title">💍 Ideal Life Partner | জীবন সঙ্গী</div>
+    <div class="card">
+      <p style="color:var(--gold);font-size:1.1rem">“যে নারী শুধুমাত্র আল্লাহর সন্তুষ্টির জন্য জীবন যাপন করবে এবং খাদিজা (রা.)-এর মতো দ্বীন প্রতিষ্ঠায় আমার পাশে দাঁড়াবে।”</p>
+      <div class="grid-2" style="margin-top:1.5rem">
+        <div><i class="fas fa-hand-holding-heart"></i> <strong>আমার প্রত্যাশা:</strong> আল্লাহর জন্যই ভালোবাসা, দুনিয়াবি চাপমুক্ত সম্পর্ক। আমার কিংবা অন্য কারো ব্যক্তিগত ইচ্ছা পূরণে তাকে চাপ দেওয়া হবে না। সে নিজের ইচ্ছায় দ্বীনের কাজে অগ্রগামী হবে।</div>
+        <div><i class="fas fa-children"></i> <strong>সন্তান গঠন:</strong> সন্তানকে আল্লাহর মনোনীত খলিফা হিসেবে তৈরি করার দৃঢ় ইচ্ছা। দ্বীন ও দুনিয়ার ভারসাম্যপূর্ণ তরবিয়ত।</div>
+        <div><i class="fas fa-balance-scale"></i> <strong>আমার ভূমিকা:</strong> আমি তাকে আল্লাহর জন্যই ভালোবাসব, দুনিয়াবী ক্ষতি হলে কোন রাগ থাকবে না; কিন্তু আখেরাতে ক্ষতি হলে পথ পৃথক করে নেব।</div>
+        <div><i class="fas fa-hand-peace"></i> <strong>তার প্রতি মুআমালাত:</strong> আল্লাহর সন্তুষ্টির পথে জীবন দিয়েও সহযোগিতা করবে। আমি যদি আল্লাহর সন্তুষ্টির বিপরীত কাজ করি, তবে আমাকে ছেড়ে চলে যাবে।</div>
+      </div>
+      <p style="margin-top:1.5rem;text-align:center;border-top:1px solid var(--border);padding-top:1rem"><i class="fas fa-quote-right"></i> “নিশ্চয় আমার সালাত, আমার কুরবানী, আমার জীবন ও আমার মৃত্যু আল্লাহর জন্য” — আল-আন‘আম ১৬২</p>
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- CONTACT -->
+<!-- যোগাযোগ ও সোশ্যাল মিডিয়া -->
 <section class="section" id="contact">
   <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-tag">Get in touch</div>
-      <div class="sec-title">Contact Me</div>
-      <div class="sec-line"></div>
-    </div>
-    <div class="contact-grid reveal">
-      <a href="mailto:tasnimmuhammad51@gmail.com" class="contact-card">
-        <div class="ci mail">✉</div>
-        <div><div class="c-label">Email</div><div class="c-val">tasnimmuhammad51@gmail.com</div></div>
-      </a>
-      <a href="tel:+8801330989762" class="contact-card">
-        <div class="ci phone">📞</div>
-        <div><div class="c-label">Phone</div><div class="c-val">+880 1330-989762</div></div>
-      </a>
-      <a href="https://wa.me/8801740125506" target="_blank" class="contact-card">
-        <div class="ci wa">💬</div>
-        <div><div class="c-label">WhatsApp</div><div class="c-val">+880 1740-125506</div></div>
-      </a>
-    </div>
-    <div class="contact-grid reveal">
-      <a href="https://facebook.com" target="_blank" class="contact-card">
-        <div class="ci fb">f</div>
-        <div><div class="c-label">Facebook</div><div class="c-val">MD. Tasnem Miraz</div></div>
-      </a>
-      <a href="https://linkedin.com" target="_blank" class="contact-card">
-        <div class="ci li">in</div>
-        <div><div class="c-label">LinkedIn</div><div class="c-val">MD. Tasnem Miraz</div></div>
-      </a>
-      <a href="https://github.com" target="_blank" class="contact-card">
-        <div class="ci gh">gh</div>
-        <div><div class="c-label">GitHub</div><div class="c-val">MD. Tasnem Miraz</div></div>
-      </a>
+    <div class="sec-title">📞 যোগাযোগ ও সোশ্যাল নেটওয়ার্ক</div>
+    <div class="card" style="text-align:center">
+      <p><i class="fas fa-envelope"></i> Email: <a href="mailto:tasnimmuhammad51@gmail.com" style="color:var(--cyan)">tasnimmuhammad51@gmail.com</a></p>
+      <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/8801732029902" style="color:var(--cyan)">+8801732029902</a> &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> Phone: +8801330989762</p>
+      <div class="social-icons" style="margin:1.5rem 0">
+        <a href="https://www.facebook.com/people/%E0%A6%AE%E0%A7%8B%E0%A6%83-%E0%A6%A4%E0%A6%BE%E0%A6%B8%E0%A6%A8%E0%A6%BF%E0%A6%AE-%E0%A6%AE%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%9C/61574382370566/"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/md-tasnem-%E0%A6%AE%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%9C-161201294/"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.youtube.com/@islamic-missionary-university"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fas fa-globe"></i></a>
+      </div>
+      <p><strong>অফিসিয়াল ওয়েবসাইট: </strong> MD.TASNEM AL-HUJAIFA MIRAZ কর্তৃক নির্মিত</p>
+      <div style="margin-top:1rem"><i class="fas fa-map-pin"></i> ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া, বাংলাদেশ ।</div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-name">MD. Tasnem Al-Hujaifa Miraz</div>
-  <div class="footer-copy">© 2025 All rights reserved · Kushtia, Bangladesh</div>
-  <div class="footer-verse">"নিশ্চয় আমার সালাত, আমার কুরবানী, আমার জীবন ও আমার মৃত্যু আল্লাহর জন্য" — আল-কুরআন ৬:১৬২</div>
+<footer style="padding:2rem;text-align:center;border-top:1px solid var(--border);color:var(--muted)">
+  <div style="font-family:'Playfair Display';color:var(--gold);font-size:1.2rem">মো: তাসনিম আল-হুজাইফা মিরাজ</div>
+  <p>© ২০২৬ | সর্বস্বত্ব সংরক্ষিত | এই ওয়েবসাইটটি দ্বীনের পথে উৎসর্গিত</p>
+  <p style="font-style:italic">“আমার প্রার্থনা, আমার কুরবানী, আমার জীবন ও মৃত্যু জগতসমূহের প্রতিপালক আল্লাহর জন্য”</p>
 </footer>
 
 <script>
-function openMenu(){document.getElementById('mobileMenu').style.display='flex'}
-function closeMenu(){document.getElementById('mobileMenu').style.display='none'}
-
-// Scroll reveal
-const obs = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('visible');
-      // animate timeline items
-      if(e.target.classList.contains('timeline')){
-        e.target.querySelectorAll('.tl-item').forEach((item,i)=>{
-          setTimeout(()=>item.classList.add('visible'),i*150);
-        });
-      }
+const texts = ["ওয়েব ডেভেলপার", "আরবি সাহিত্য গবেষক", "আকাঙ্ক্ষিত দাঈ", "Islamic Technologist", "সেবক ও দ্বীন প্রচারক"];
+let count = 0, index = 0;
+const typedSpan = document.getElementById('typed');
+function type(){
+  if(count === texts.length) count = 0;
+  let current = texts[count];
+  let letter = current.slice(0, ++index);
+  typedSpan.textContent = letter;
+  if(letter.length === current.length){
+    setTimeout(()=>{ index=0; count++; setTimeout(type, 1400); }, 2000);
+  } else { setTimeout(type, 70); }
+}
+window.onload = () => { type(); };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = 'translateY(0)';
     }
   });
-},{threshold:0.12});
-
-document.querySelectorAll('.reveal,.timeline').forEach(el=>obs.observe(el));
-
-// Skill bars
-const skillObs = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.skill-fill').forEach(bar=>{
-        bar.style.width=bar.dataset.w+'%';
-      });
-    }
-  });
-},{threshold:0.3});
-const sg=document.getElementById('skillGrid');
-if(sg)skillObs.observe(sg);
-
-// Active nav link highlight
-window.addEventListener('scroll',()=>{
-  const sections=document.querySelectorAll('section[id]');
-  const links=document.querySelectorAll('.nav-links a');
-  let cur='';
-  sections.forEach(s=>{
-    if(window.scrollY>=s.offsetTop-120)cur=s.id;
-  });
-  links.forEach(a=>{
-    a.style.color=a.getAttribute('href')==='#'+cur?'var(--gold)':'';
-  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.card').forEach(card => {
+  card.style.opacity = 0;
+  card.style.transform = 'translateY(40px)';
+  card.style.transition = 'all 0.8s cubic-bezier(0.25,0.1,0.25,1)';
+  observer.observe(card);
 });
 </script>
 </body>
