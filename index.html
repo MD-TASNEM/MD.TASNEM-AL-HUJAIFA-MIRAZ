@@ -7,149 +7,481 @@
 
 <link rel="icon" type="image/jpeg" href="MD_TASNEM.jpg">
 
-
+<!-- Fonts & Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#080d1a;
-  --bg2:#0e1525;
-  --card:#111827;
-  --gold:#e8b86d;
-  --gold2:#c9954a;
-  --cyan:#38bdf8;
-  --cyan2:#0ea5e9;
-  --text:#f0f4ff;
-  --muted:#8896b3;
-  --border:rgba(255,255,255,0.08);
-  --glow-gold:0 0 25px rgba(232,184,109,0.4);
-  --glow-cyan:0 0 25px rgba(56,189,248,0.4);
-}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Outfit',sans-serif;
-  font-size:15px;
-  line-height:1.7;
-  overflow-x:hidden;
-}
-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  background:radial-gradient(circle at 20% 30%, rgba(56,189,248,0.08) 0%, transparent 50%),
-             radial-gradient(circle at 80% 70%, rgba(232,184,109,0.07) 0%, transparent 50%);
-  pointer-events:none;
-  z-index:-1;
-}
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:999;
-  padding:0.8rem 2rem;
-  background:rgba(8,13,26,0.95);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;
-}
-.nav-logo{
-  font-family:'Playfair Display',serif;
-  font-size:1.2rem;font-weight:900;
-  color:var(--gold);letter-spacing:1px;
-}
-.nav-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
-.nav-links a{
-  color:var(--muted);text-decoration:none;font-weight:500;
-  font-size:12px;letter-spacing:1px;
-  transition:all .3s;
-}
-.nav-links a:hover{color:var(--gold);text-shadow: var(--glow-gold);}
-.hero{
-  min-height:100vh;
-  display:flex;align-items:center;
-  padding:6rem 2rem 3rem;
-  position:relative;
-}
-.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:rgba(56,189,248,0.1);
-  border:1px solid rgba(56,189,248,0.3);
-  padding:.4rem 1.2rem;border-radius:50px;
-  font-size:12px;color:var(--cyan);
-  margin-bottom:1.5rem;
-}
-.hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.8rem,7vw,5rem);
-  font-weight:900;line-height:1.1;
-}
-.typing{font-size:1.3rem;color:var(--cyan);font-weight:500;min-height:70px;}
-.cursor{display:inline-block;width:4px;height:1.1em;background:var(--cyan);vertical-align:middle;animation:blink 0.7s infinite;}
-@keyframes blink{50%{opacity:0}}
-.section{padding:5rem 2rem;position:relative}
-.container{max-width:1200px;margin:0 auto}
-.sec-title{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.8rem,4vw,2.5rem);
-  font-weight:700;
-  margin-bottom:2rem;
-  background:linear-gradient(to right,var(--gold),var(--cyan));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  border-left:4px solid var(--gold);
-  padding-left:1rem;
-}
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:24px;
-  padding:1.8rem;
-  transition:all .4s cubic-bezier(0.4,0,0.2,1);
-  box-shadow:0 10px 30px -10px rgba(0,0,0,0.3);
-}
-.card:hover{
-  transform:translateY(-8px);
-  border-color:var(--gold);
-  box-shadow:var(--glow-gold);
-}
-.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.8rem;}
-.table-cv{width:100%;border-collapse:collapse;color:var(--muted);}
-.table-cv td,.table-cv th{padding:0.8rem;border-bottom:1px solid var(--border);text-align:left;}
-.table-cv th{color:var(--gold);font-weight:600;}
-.badge{background:rgba(56,189,248,0.15);color:var(--cyan);padding:0.2rem 0.7rem;border-radius:30px;font-size:0.75rem;display:inline-block;}
-.skill-tag{background:rgba(232,184,109,0.12);border:1px solid rgba(232,184,109,0.3);padding:0.3rem 1rem;border-radius:40px;font-size:0.8rem;display:inline-block;margin:0.25rem;}
-.routine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;}
-.routine-item{background:rgba(255,255,255,0.03);border-radius:20px;padding:1rem;border-left:3px solid var(--cyan);}
-.social-icons a{color:var(--muted);font-size:1.5rem;margin:0 0.7rem;transition:0.3s;display:inline-block;}
-.social-icons a:hover{color:var(--gold);transform:translateY(-3px);}
-.btn-gold{background:var(--gold);color:#0a0d15;padding:0.8rem 1.8rem;border-radius:40px;font-weight:600;text-decoration:none;display:inline-block;transition:0.3s;}
-.btn-outline{border:1px solid var(--cyan);color:var(--cyan);padding:0.8rem 1.8rem;border-radius:40px;font-weight:600;text-decoration:none;display:inline-block;}
-@media (max-width:768px){.nav-links{display:none} nav{justify-content:center} .section{padding:3rem 1rem}}
+  /* ---------- CSS RESET & BASE ---------- */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Light mode (default) */
+  :root {
+    --bg: #faf9f8;
+    --bg2: #f0f2f5;
+    --card: #ffffff;
+    --card-hover: #ffffff;
+    --gold: #aa6218;
+    --gold2: #9a590f;
+    --cyan: #0c4e6e;
+    --cyan2: #0a3b54;
+    --text: #111827;
+    --muted: #4b5563;
+    --border: rgba(0, 0, 0, 0.06);
+    --glow-gold: 0 0 25px rgba(170, 98, 24, 0.15);
+    --glow-cyan: 0 0 25px rgba(12, 78, 110, 0.12);
+    --shadow-sm: 0 20px 35px -12px rgba(0, 0, 0, 0.06);
+    --nav-bg: rgba(250, 249, 248, 0.95);
+  }
+
+  /* Dark mode class */
+  body.dark {
+    --bg: #080d1a;
+    --bg2: #0e1525;
+    --card: #111827;
+    --card-hover: #1a2538;
+    --gold: #e8b86d;
+    --gold2: #c9954a;
+    --cyan: #38bdf8;
+    --cyan2: #0ea5e9;
+    --text: #f0f4ff;
+    --muted: #94a3b8;
+    --border: rgba(255, 255, 255, 0.08);
+    --glow-gold: 0 0 25px rgba(232, 184, 109, 0.3);
+    --glow-cyan: 0 0 25px rgba(56, 189, 248, 0.25);
+    --shadow-sm: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
+    --nav-bg: rgba(8, 13, 26, 0.95);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.2s ease;
+  }
+
+  /* Ambient subtle gradient */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 15% 25%, rgba(56, 189, 248, 0.04) 0%, transparent 55%),
+                radial-gradient(circle at 85% 70%, rgba(232, 184, 109, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* ---------- NEW NAVIGATION: LEFT - CENTER - RIGHT ---------- */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: 0.8rem 2rem;
+    background: var(--nav-bg);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover {
+    color: var(--gold);
+    text-shadow: var(--glow-gold);
+  }
+
+  /* Theme Toggle Button - RIGHT side */
+  .theme-toggle {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 40px;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .theme-toggle i {
+    font-size: 1rem;
+    color: var(--gold);
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--gold);
+    transform: scale(0.98);
+  }
+
+  /* Hero Section with SIDE PROFILE LAYOUT */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 7rem 2rem 3rem;
+    position: relative;
+  }
+
+  .hero-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .hero-content {
+    flex: 1.4;
+    min-width: 280px;
+  }
+
+  .hero-image {
+    flex: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .profile-frame {
+    position: relative;
+    max-width: 340px;
+    width: 100%;
+    border-radius: 2rem;
+    background: linear-gradient(135deg, var(--gold), var(--cyan));
+    padding: 5px;
+    box-shadow: var(--glow-gold);
+    transition: transform 0.4s ease;
+  }
+
+  .profile-frame:hover {
+    transform: scale(1.02);
+  }
+
+  .profile-img {
+    width: 100%;
+    height: auto;
+    border-radius: 1.8rem;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    background: var(--card);
+    transition: all 0.3s;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 12px;
+    color: var(--cyan);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .typing {
+    font-size: 1.3rem;
+    color: var(--cyan);
+    font-weight: 500;
+    min-height: 70px;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 4px;
+    height: 1.1em;
+    background: var(--cyan);
+    vertical-align: middle;
+    animation: blink 0.7s infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  /* Sections */
+  .section {
+    padding: 5rem 2rem;
+    position: relative;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    background: linear-gradient(to right, var(--gold), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-left: 4px solid var(--gold);
+    padding-left: 1rem;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 1.8rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    box-shadow: var(--glow-gold);
+    background: var(--card-hover);
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.8rem;
+  }
+
+  .table-cv {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--muted);
+  }
+
+  .table-cv td,
+  .table-cv th {
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+  }
+
+  .table-cv th {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .skill-tag {
+    background: rgba(232, 184, 109, 0.12);
+    border: 1px solid rgba(232, 184, 109, 0.3);
+    padding: 0.3rem 1rem;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin: 0.25rem;
+  }
+
+  .routine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .routine-item {
+    background: rgba(56, 189, 248, 0.05);
+    border-radius: 20px;
+    padding: 1rem;
+    border-left: 3px solid var(--cyan);
+  }
+
+  .social-icons a {
+    color: var(--muted);
+    font-size: 1.5rem;
+    margin: 0 0.7rem;
+    transition: 0.3s;
+    display: inline-block;
+  }
+
+  .social-icons a:hover {
+    color: var(--gold);
+    transform: translateY(-3px);
+  }
+
+  .btn-gold {
+    background: var(--gold);
+    color: #0a0d15;
+    padding: 0.8rem 1.8rem;
+    border-radius: 40px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-outline {
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    padding: 0.8rem 1.8rem;
+    border-radius: 40px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    background: transparent;
+    transition: 0.3s;
+  }
+
+  .btn-gold:hover,
+  .btn-outline:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.05);
+  }
+
+  footer {
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  @media (max-width: 900px) {
+    .nav-links {
+      gap: 0.8rem;
+    }
+    .nav-links a {
+      font-size: 10px;
+    }
+  }
+
+  @media (max-width: 780px) {
+    nav {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.8rem 1rem;
+    }
+    .nav-links {
+      order: 2;
+      justify-content: center;
+      width: 100%;
+    }
+    .theme-toggle {
+      order: 3;
+    }
+    .hero-inner {
+      flex-direction: column-reverse;
+      text-align: center;
+      gap: 2rem;
+    }
+    .hero-content {
+      text-align: center;
+    }
+    .hero-eyebrow {
+      justify-content: center;
+    }
+    .btn-gold, .btn-outline {
+      margin: 0 auto;
+    }
+    .section {
+      padding: 3rem 1rem;
+    }
+    .profile-frame {
+      max-width: 260px;
+      margin: 0 auto;
+    }
+  }
 </style>
 </head>
 <body>
 
+<!-- Navigation: LEFT (Logo), CENTER (Links), RIGHT (Theme Toggle) -->
 <nav>
   <div class="nav-logo">MD. TASNEM AL-HUJAIFA</div>
   <div class="nav-links">
-    <a href="#about">পরিচিতি</a><a href="#journey">জীবনবৃত্তান্ত</a><a href="#cv">CV</a>
-    <a href="#education">শিক্ষা</a><a href="#skills">দক্ষতা</a><a href="#routine">রুটিন</a>
-    <a href="#partner">জীবন সঙ্গী</a><a href="#contact">যোগাযোগ</a>
+    <a href="#about">পরিচিতি</a>
+    <a href="#journey">জীবনবৃত্তান্ত</a>
+    <a href="#cv">CV</a>
+    <a href="#education">শিক্ষা</a>
+    <a href="#skills">দক্ষতা</a>
+    <a href="#routine">রুটিন</a>
+    <a href="#partner">জীবন সঙ্গী</a>
+    <a href="#contact">যোগাযোগ</a>
   </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+    <i class="fas fa-moon" id="themeIcon"></i> <span id="themeText">লাইট মোড</span>
+  </button>
 </nav>
 
-<!-- HERO -->
+<!-- HERO SECTION with side-aligned picture -->
 <section class="hero" id="home">
   <div class="hero-inner">
-    <div class="hero-eyebrow"><i class="fas fa-quran"></i> রাব্বি জিদনি ইলমা</div>
-    <h1>মো: তাসনিম আল-হুজাইফা মিরাজ ।</h1>
-    <div class="typing"><span id="typed"></span><span class="cursor">|</span></div>
-    <p style="max-width:600px;margin-top:1rem;color:var(--muted);">ওয়েব ডেভেলপার , দাঈ, আরবি সাহিত্যের শিক্ষার্থী ।</p>
-    <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
-      <a href="mailto:tasnimmuhammad51@gmail.com" class="btn-gold"><i class="fas fa-envelope"></i> পেশাদার যোগাযোগ</a>
-      <a href="#cv" class="btn-outline"><i class="fas fa-file-alt"></i> পূর্ণ সিভি দেখুন</a>
+    <div class="hero-content">
+      <div class="hero-eyebrow"><i class="fas fa-quran"></i> رَبِّ زِدْنِي عِلْمًا</div>
+      <h1>মো: তাসনিম আল-হুজাইফা মিরাজ</h1>
+      <div class="typing"><span id="typed"></span><span class="cursor">|</span></div>
+      <p style="max-width:550px; margin-top:1rem; color:var(--muted);">ওয়েব ডেভেলপার , দাঈ, আরবি সাহিত্যের শিক্ষার্থী । প্রযুক্তি ও দ্বীনের সমন্বয়ে উম্মাহর সেবায় নিবেদিত।</p>
+      <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="mailto:tasnimmuhammad51@gmail.com" class="btn-gold"><i class="fas fa-envelope"></i> পেশাদার যোগাযোগ</a>
+        <a href="#cv" class="btn-outline"><i class="fas fa-file-alt"></i> পূর্ণ সিভি দেখুন</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="profile-frame">
+        <img src="MD_TASNEM.jpg" alt="MD_TASNEM - professional portrait" class="profile-img">
+      </div>
     </div>
   </div>
 </section>
@@ -159,13 +491,13 @@ nav{
   <div class="container">
     <div class="sec-title">পরিচিতি / About Me</div>
     <div class="card">
-      <p style="color:var(--text);font-size:1.05rem">মোঃ তাসনিম আল-হুজাইফা মিরাজ বরিশাল জেলায় জন্মগ্রহণ করেন। তিনি ছারছীনা দারুস সুন্নাত কামিল মাদ্রাসা থেকে অষ্টম শ্রেণী সম্পন্ন করেন। পরবর্তীতে তিনি ঝালকাঠি এন.এস. কামিল মাদ্রাসা থেকে দাখিল ও আলিম পরীক্ষায় উত্তীর্ণ হন। বর্তমানে তিনি কুষ্টিয়ার ইসলামী বিশ্ববিদ্যালয়ের আরবি ভাষা ও সাহিত্য বিভাগে অধ্যয়নরত। পাশাপাশি, তিনি ওয়েব ডেভেলপমেন্টে দক্ষ। তাঁর দক্ষতার ক্ষেত্রগুলোর মধ্যে রয়েছে—HTML, CSS, JavaScript, React,MongoDB,Firebase,NodeJS,Next.js, Git, GitHub এবং Tailwind CSS। তাঁর জীবনের লক্ষ্য হলো দ্বীনি জ্ঞান ও আধুনিক প্রযুক্তির সমন্বয়ের মাধ্যমে উম্মাহর সেবা করা।</p>
-      <div style="margin-top:1rem"><i class="fas fa-map-marker-alt" style="color:var(--gold)"></i> ঠিকানা:ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া, বাংলাদেশ । &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +8801330989762</div>
+      <p style="color:var(--text);font-size:1.05rem">মোঃ তাসনিম আল-হুজাইফা মিরাজ বরিশাল জেলায় জন্মগ্রহণ করেন। তিনি ছারছীনা দারুস সুন্নাত কামিল মাদ্রাসা থেকে অষ্টম শ্রেণী সম্পন্ন করেন। পরবর্তীতে তিনি ঝালকাঠি এন.এস. কামিল মাদ্রাসা থেকে দাখিল ও আলিম পরীক্ষায় উত্তীর্ণ হন। বর্তমানে তিনি কুষ্টিয়ার ইসলামী বিশ্ববিদ্যালয়ের আরবি ভাষা ও সাহিত্য বিভাগে অধ্যয়নরত। পাশাপাশি তিনি ওয়েব ডেভেলপমেন্টে দক্ষ। তাঁর দক্ষতার ক্ষেত্রগুলোর মধ্যে রয়েছে—HTML, CSS, JavaScript, React, MongoDB, Firebase, NodeJS, Next.js, Git, GitHub এবং Tailwind CSS। তাঁর জীবনের লক্ষ্য হলো দ্বীনি জ্ঞান ও আধুনিক প্রযুক্তির সমন্বয়ের মাধ্যমে উম্মাহর সেবা করা।</p>
+      <div style="margin-top:1rem"><i class="fas fa-map-marker-alt" style="color:var(--gold)"></i> ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া, বাংলাদেশ &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +8801330989762</div>
     </div>
   </div>
 </section>
 
-<!-- সম্পূর্ণ ব্যক্তিগত জীবনকথা (রুগ্ন মা, বাবা, মাদ্রাসা) -->
+<!-- সম্পূর্ণ ব্যক্তিগত জীবনকথা -->
 <section class="section" id="journey" style="background:var(--bg2)">
   <div class="container">
     <div class="sec-title">আমার জীবন বৃত্তান্ত 📜</div>
@@ -179,131 +511,156 @@ nav{
   </div>
 </section>
 
-<!-- সম্পূর্ণ CV (ব্যক্তিগত তথ্য, উদ্দেশ্য, শিক্ষা, প্রশিক্ষণ) -->
+<!-- সম্পূর্ণ CV SECTION -->
 <section class="section" id="cv">
   <div class="container">
     <div class="sec-title">📄 Curriculum Vitae (পূর্ণ জীবনবৃত্তান্ত)</div>
     <div class="grid-2">
       <div class="card"><h3 style="color:var(--gold)"><i class="fas fa-user-astronaut"></i> ব্যক্তিগত তথ্য</h3>
         <p><strong>নাম:</strong> মো: তাসনিম আল-হুজাইফা মিরাজ<br>
-        <strong>ঠিকানা:</strong>ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া, বাংলাদেশ ।<br>
+        <strong>ঠিকানা:</strong> ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া, বাংলাদেশ ।<br>
         <strong>ইমেইল:</strong> tasnimmuhammad51@gmail.com<br>
         <strong>মোবাইল:</strong> +880 1330-989762, +8801732029902 (WhatsApp)</p>
         <h3 style="margin-top:1rem;color:var(--cyan)">ক্যারিয়ার অবজেকটিভ</h3>
         <p>আরবি ভাষা ও সাহিত্য এবং ওয়েব ডেভেলপমেন্টের সমন্বয়ে দ্বীনি প্রতিষ্ঠান ও সমাজের কল্যাণে কার্যকর ভূমিকা রাখা। আধুনিক প্রযুক্তি ব্যবহার করে ইসলামী কন্টেন্ট ও দাওয়ার প্ল্যাটফর্ম তৈরি করা।</p>
       </div>
       <div class="card"><h3 style="color:var(--gold)"><i class="fas fa-graduation-cap"></i> শিক্ষাগত যোগ্যতা</h3>
-        <table class="table-cv"><tr><th>পরীক্ষা</th><th>প্রতিষ্ঠান</th><th>ফলাফল/বছর</th></tr>
-        <tr><td>জেডিসি</td><td>সারসিনা দারু সুন্নাত কামিল মাদ্রাসা</td><td>4.28 (2018)</td></tr>
-        <tr><td>দাখিল</td><td>ঝালকাঠি এন এস কামিল মাদ্রাসা</td><td>4.88 (2020)</td></tr>
-        <tr><td>আলিম</td><td>ঝালকাঠি এন এস কামিল মাদ্রাসা</td><td>5.00 (2022)</td></tr>
-        <tr><td>অনার্স (চলমান)</td><td>ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া (আরবি ভাষা ও সাহিত্য)</td><td>৩ য় বর্ষ</td></tr></table>
+        <table class="table-cv">
+          <tr><th>পরীক্ষা</th><th>প্রতিষ্ঠান</th><th>ফলাফল/বছর</th></tr>
+          <tr><td>জেডিসি</td><td>ছারছীনা দারুস সুন্নাত কামিল মাদ্রাসা</td><td>4.28 (2018)</td></tr>
+          <tr><td>দাখিল</td><td>ঝালকাঠি এন এস কামিল মাদ্রাসা</td><td>4.88 (2020)</td></tr>
+          <tr><td>আলিম</td><td>ঝালকাঠি এন এস কামিল মাদ্রাসা</td><td>5.00 (2022)</td></tr>
+          <tr><td>অনার্স (চলমান)</td><td>ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া (আরবি ভাষা ও সাহিত্য)</td><td>৩ য় বর্ষ</td></tr>
+        </table>
       </div>
       <div class="card"><h3 style="color:var(--gold)"><i class="fas fa-laptop-code"></i> প্রশিক্ষণ ও কোর্স</h3>
-        <ul style="margin-left:1.2rem;color:var(--muted)"><li>ওয়েব ডেভেলপমেন্ট (Programming Hero) – HTML, CSS, JavaScript, React,MongoDB,Firebase,NodeJS,Next.js, Git, GitHub এবং Tailwind CSS।</li>
+        <ul style="margin-left:1.2rem;color:var(--muted)"><li>ওয়েব ডেভেলপমেন্ট (Programming Hero) – HTML, CSS, JavaScript, React, MongoDB, Firebase, NodeJS, Next.js, Git, GitHub, Tailwind CSS.</li>
         <li>রেসপনসিভ ডিজাইন, API হ্যান্ডলিং, প্রকল্পভিত্তিক কাজ (পোর্টফোলিও, ব্লগ, ই-কমার্স UI)</li>
         <li>আরবি ভাষা ও সাহিত্যে উচ্চতর প্রশিক্ষণ (Islamic University)</li></ul>
       </div>
-<div class="card">
-  <h3 style="color:var(--gold)"><i class="fas fa-chart-line"></i> দক্ষতা ও প্রযুক্তি</h3>
-  <div>
-    <span class="skill-tag">HTML5/CSS3</span>
-    <span class="skill-tag">JavaScript (ES6)</span>
-    <span class="skill-tag">React.js</span>
-    <span class="skill-tag">Next.js</span>
-    <span class="skill-tag">Node.js</span>
-    <span class="skill-tag)Node.js</span>
-    <span class="skill-tag">MongoDB</span>
-    <span class="skill-tag">Firebase</span>
-    <span class="skill-tag">Tailwind CSS</span>
-    <span class="skill-tag">Git/GitHub</span>
-    <span class="skill-tag">VS Code</span>
-  </div>
-  
-  <p style="margin-top:1rem">
-    <strong>ভাষা দক্ষতা:</strong> বাংলা (মাতৃভাষা), আরবি (একাডেমিক দক্ষতা), ইংরেজি (মাধ্যমিক), হিন্দি ও উর্দু (কথোপকথন/মিডিয়াম)
-  </p>
-  
-  <p>
-    <strong>ব্যক্তিগত গুণাবলী:</strong> দ্রুত শিখন ক্ষমতা, সমস্যা সমাধান, টিমওয়ার্ক, সময় ব্যবস্থাপনা ও আত্মশৃঙ্খলা।
-  </p>
-</div>
-      
+      <div class="card" id="skills">
+        <h3 style="color:var(--gold)"><i class="fas fa-chart-line"></i> দক্ষতা ও প্রযুক্তি</h3>
+        <div>
+          <span class="skill-tag">HTML5/CSS3</span><span class="skill-tag">JavaScript ES6</span><span class="skill-tag">React.js</span>
+          <span class="skill-tag">Next.js</span><span class="skill-tag">Node.js</span><span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Firebase</span><span class="skill-tag">Tailwind CSS</span><span class="skill-tag">Git/GitHub</span>
+          <span class="skill-tag">VS Code</span>
+        </div>
+        <p style="margin-top:1rem"><strong>ভাষা দক্ষতা:</strong> বাংলা (মাতৃভাষা), আরবি (একাডেমিক দক্ষতা), ইংরেজি (মাধ্যমিক), হিন্দি ও উর্দু (কথোপকথন)</p>
+        <p><strong>ব্যক্তিগত গুণাবলী:</strong> দ্রুত শিখন ক্ষমতা, সমস্যা সমাধান, টিমওয়ার্ক, সময় ব্যবস্থাপনা ও আত্মশৃঙ্খলা।</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- শিক্ষা প্রতিষ্ঠানের স্তরভিত্তিক অর্জন (মক্তব থেকে দাওয়াহ) -->
+<!-- শিক্ষা প্রতিষ্ঠানের স্তরভিত্তিক অর্জন -->
 <section class="section" id="education" style="background:var(--bg2)">
   <div class="container">
     <div class="sec-title">📖 শিক্ষাজীবনের মাইলফলক</div>
     <div class="card"><div class="routine-grid">
-      <div class="routine-item"><strong>📚 মক্তব</strong><br>বয়াতিবাড়ী মসজিদ | যোগাযোগ দক্ষতা ১০%</div>
-      <div class="routine-item"><strong>⭐ নূরাণী</strong><br>ধারালিয়া নূরাণী | কুরআন পড়া ১০০%</div>
-      <div class="routine-item"><strong>🕋 হেফজ</strong><br>হাফেজী মাদ্রাসা | ৫ পারা অর্জন ৪০%</div>
-      <div class="routine-item"><strong>📖 ৫ম-৭ম</strong><br>খোদাবখসা দাখিল | স্বাভাবিক জীবন ৭০%</div>
-      <div class="routine-item"><strong>✨ ৮ম শ্রেণি</strong><br>ছারছীনা আলিয়া | আদব ও আখলাক ১০০%</div>
-      <div class="routine-item"><strong>🎓 দাখিল-আলিম</strong><br>ঝালকাঠি এন এস | বেসিক ইলম ও সংগঠন ১০০%</div>
-      <div class="routine-item"><strong>🏛️ অনার্স</strong><br>ইসলামী বিশ্ববিদ্যালয় | স্বাধীনতা ও গবেষণা ১০০%</div>
-      <div class="routine-item"><strong>🤝 দাওয়াহ</strong><br>আসসুন্নাহ ট্রাস্ট, DRTC | সফলতা ১০০%</div>
+      <div class="routine-item"><strong>📚 মক্তব</strong><br>বয়াতিবাড়ী মসজিদ</div>
+      <div class="routine-item"><strong>⭐ নূরাণী</strong><br>ধারালিয়া নূরাণী</div>
+      <div class="routine-item"><strong>🕋 হেফজ</strong><br>হাফেজী মাদ্রাসা | ৫ পারা</div>
+      <div class="routine-item"><strong>📖 ৫ম-৭ম</strong><br>খোদাবখসা দাখিল</div>
+      <div class="routine-item"><strong>✨ ৮ম শ্রেণি</strong><br>ছারছীনা আলিয়া</div>
+      <div class="routine-item"><strong>🎓 দাখিল-আলিম</strong><br>ঝালকাঠি এন এস</div>
+      <div class="routine-item"><strong>🏛️ অনার্স</strong><br>ইসলামী বিশ্ববিদ্যালয়</div>
+      <div class="routine-item"><strong>🤝 দাওয়াহ</strong><br>আসসুন্নাহ ট্রাস্ট, DRTC</div>
     </div></div>
   </div>
 </section>
 
-<!-- আদর্শ ও প্রভাব (আকিদা, ফিকহ, সংগঠন) -->
+<!-- আদর্শ ও প্রভাব -->
 <section class="section" id="ideals">
   <div class="container">
     <div class="sec-title">🌟 আদর্শ ও অনুপ্রেরণা</div>
     <div class="grid-2">
-      <div class="card"><i class="fas fa-book-quran" style="font-size:2rem;color:var(--gold)"></i><h3 style="margin:0.5rem 0">আকিদা ও ফিকহ</h3><p>ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর রহ.</p>
-      <h3>রাজনৈতিক সংগঠন</h3><p>জামাতে ইসলামী, ইসলামী ছাত্রশিবির। আল্লামা মওদুদী রহ.</p></div>
-      <div class="card"><i class="fas fa-hand-peace"></i><h3>অরাজনৈতিক সংগঠন</h3><p>হেফাজতে ইসলাম (মুফতি হারুন ইজহার রহ.)<br>দাওয়াহ: ডা. জাকির নায়েক রহ.</p>
-      <h3>জীবনের লক্ষ্য</h3><p>“খাওয়া, কাপড়, আরাম, সৌন্দর্য ত্যাগ করে আল্লাহর দ্বীন প্রতিষ্ঠা এবং মসজিদের ইমামদের স্বনির্ভর করা।”</p></div>
+      <div class="card"><i class="fas fa-book-quran" style="font-size:2rem;color:var(--gold)"></i><h3 style="margin:0.5rem 0">আকিদা ও ফিকহ</h3><p>ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর রহ.</p><h3>রাজনৈতিক সংগঠন</h3><p>জামাতে ইসলামী, ইসলামী ছাত্রশিবির। আল্লামা মওদুদী রহ.</p></div>
+      <div class="card"><i class="fas fa-hand-peace"></i><h3>অরাজনৈতিক সংগঠন</h3><p>হেফাজতে ইসলাম (মুফতি হারুন ইজহার রহ.)<br>দাওয়াহ: ডা. জাকির নায়েক রহ.</p><h3>জীবনের লক্ষ্য</h3><p>“খাওয়া, কাপড়, আরাম, সৌন্দর্য ত্যাগ করে আল্লাহর দ্বীন প্রতিষ্ঠা এবং মসজিদের ইমামদের স্বনির্ভর করা।”</p></div>
     </div>
   </div>
 </section>
 
-<!-- দৈনিক রুটিন ও খাবার তালিকা -->
+<!-- দৈনিক রুটিন -->
 <section class="section" id="routine">
   <div class="container">
     <div class="sec-title">⏰ দৈনিক রুটিন ও খাদ্যাভ্যাস</div>
     <div class="grid-2">
-      <div class="card"><h3 style="color:var(--cyan)"><i class="fas fa-utensils"></i> খাবার তালিকা</h3>
-        <p>🍯 সকাল: মধু + খেজুর + কিসমিস + বাদাম<br>🍽️ দুপুর: চিড়া + গোস্ত + মাছ + ডিম<br>🥛 রাত: দুধ + রুটি + সমজাতীয় খাবার</p>
-        <p style="margin-top:1rem"><i class="fas fa-dumbbell"></i> নিয়মিত মুতায়াআলা ও জিহাদের ট্রেনিং আছর থেকে এশা পর্যন্ত।</p>
-      </div>
-      <div class="card"><h3 style="color:var(--cyan)"><i class="fas fa-clock"></i> দৈনন্দিন সময়সূচি</h3>
-        <div class="routine-grid" style="grid-template-columns:1fr">
-          <div class="routine-item">🌙 তাহাজ্জুদ: ৩:০০ – ৩:৩০ AM</div>
-          <div class="routine-item">📖 আরবী ভাষা শিক্ষা: ৩:৩০ – ফজর</div>
-          <div class="routine-item">🤲 কুরআন তিলাওয়াত: ফজর – ০৮:০০</div>
-          <div class="routine-item">📜 হাদিস অধ্যয়ন: ০৮:০০ – ১০:৩০</div>
-          <div class="routine-item">😴 খাবার ও বিশ্রাম: ১০:৩০ – ১২:০০</div>
-          <div class="routine-item">📚 ইসলামী সাহিত্য, আকিদা, তুলনামূলক ধর্ম: ১২:১৫ – ০১:১৫</div>
-          <div class="routine-item">🍽️ খাওয়া ও যোহর: ০১:১৫ – ০২:১৫</div>
-          <div class="routine-item">🇧🇩 বাংলা ভাষা শিক্ষা: ০২:১৫ – ০৩:১৫</div>
-          <div class="routine-item">🇬🇧 ইংরেজি ভাষা শিক্ষা: ০৩:১৫ – আছর</div>
-          <div class="routine-item">⚔️ মুতায়াআলা / ট্রেনিং: আছর – এশা</div>
-          <div class="routine-item">📝 দৈনিক পরীক্ষা ও মুহাসাবা: এশা – ০৩:০০ AM</div>
-        </div>
-      </div>
+      <div class="card"><h3 style="color:var(--cyan)"><i class="fas fa-utensils"></i> খাবার তালিকা</h3><p>🍯 সকাল: মধু + খেজুর + কিসমিস + বাদাম<br>🍽️ দুপুর: চিড়া + গোস্ত + মাছ + ডিম<br>🥛 রাত: দুধ + রুটি + সমজাতীয় খাবার</p><p><i class="fas fa-dumbbell"></i> নিয়মিত মুতায়াআলা ও ট্রেনিং আছর থেকে এশা পর্যন্ত।</p></div>
+      <div class="card"><h3 style="color:var(--cyan)"><i class="fas fa-clock"></i> দৈনন্দিন সময়সূচি</h3><div class="routine-grid" style="grid-template-columns:1fr">
+        <div class="routine-item">🌙 তাহাজ্জুদ: ৩:০০ – ৩:৩০ AM</div><div class="routine-item">📖 আরবী ভাষা শিক্ষা: ৩:৩০ – ফজর</div>
+        <div class="routine-item">🤲 কুরআন তিলাওয়াত: ফজর – ০৮:০০</div><div class="routine-item">📜 হাদিস অধ্যয়ন: ০৮:০০ – ১০:৩০</div>
+        <div class="routine-item">😴 খাবার ও বিশ্রাম: ১০:৩০ – ১২:০০</div><div class="routine-item">📚 ইসলামী সাহিত্য: ১২:১৫ – ০১:১৫</div>
+        <div class="routine-item">🍽️ খাওয়া ও যোহর: ০১:১৫ – ০২:১৫</div><div class="routine-item">🇧🇩 বাংলা ভাষা শিক্ষা: ০২:১৫ – ০৩:১৫</div>
+        <div class="routine-item">🇬🇧 ইংরেজি শিক্ষা: ০৩:১৫ – আছর</div><div class="routine-item">⚔️ মুতায়াআলা / ট্রেনিং: আছর – এশা</div>
+        <div class="routine-item">📝 দৈনিক পরীক্ষা ও মুহাসাবা: এশা – ০৩:০০ AM</div>
+      </div></div>
     </div>
   </div>
 </section>
 
-<!-- আদর্শ জীবন সঙ্গী (বিস্তারিত) -->
+<!-- আদর্শ জীবন সঙ্গী -->
 <section class="section" id="partner" style="background:var(--bg2)">
   <div class="container">
+    
     <div class="sec-title">💍 Ideal Life Partner | জীবন সঙ্গী</div>
+    
     <div class="card">
-      <p style="color:var(--gold);font-size:1.1rem">“যে নারী শুধুমাত্র আল্লাহর সন্তুষ্টির জন্য জীবন যাপন করবে এবং খাদিজা (রা.)-এর মতো দ্বীন প্রতিষ্ঠায় আমার পাশে দাঁড়াবে।”</p>
+      
+      <p style="color:var(--gold);font-size:1.1rem">
+        “যে নারী শুধুমাত্র আল্লাহর সন্তুষ্টির জন্য জীবন যাপন করবে এবং খাদিজা (রা.)-এর মতো দ্বীন প্রতিষ্ঠায় আমার পাশে দাঁড়াবে।”
+      </p>
+
       <div class="grid-2" style="margin-top:1.5rem">
-        <div><i class="fas fa-hand-holding-heart"></i> <strong>আমার প্রত্যাশা:</strong> আল্লাহর জন্যই ভালোবাসা, দুনিয়াবি চাপমুক্ত সম্পর্ক। আমার কিংবা অন্য কারো ব্যক্তিগত ইচ্ছা পূরণে তাকে চাপ দেওয়া হবে না। সে নিজের ইচ্ছায় দ্বীনের কাজে অগ্রগামী হবে।</div>
-        <div><i class="fas fa-children"></i> <strong>সন্তান গঠন:</strong> সন্তানকে আল্লাহর মনোনীত খলিফা হিসেবে তৈরি করার দৃঢ় ইচ্ছা। দ্বীন ও দুনিয়ার ভারসাম্যপূর্ণ তরবিয়ত।</div>
-        <div><i class="fas fa-balance-scale"></i> <strong>আমার ভূমিকা:</strong> আমি তাকে আল্লাহর জন্যই ভালোবাসব, দুনিয়াবী ক্ষতি হলে কোন রাগ থাকবে না; কিন্তু আখেরাতে ক্ষতি হলে পথ পৃথক করে নেব।</div>
-        <div><i class="fas fa-hand-peace"></i> <strong>তার প্রতি মুআমালাত:</strong> আল্লাহর সন্তুষ্টির পথে জীবন দিয়েও সহযোগিতা করবে। আমি যদি আল্লাহর সন্তুষ্টির বিপরীত কাজ করি, তবে আমাকে ছেড়ে চলে যাবে।</div>
+        <div>
+          <i class="fas fa-hand-holding-heart"></i> 
+          <strong>আমার প্রত্যাশা:</strong><br>
+          আল্লাহর জন্য ভালোবাসা, চাপমুক্ত ও সম্মানজনক সম্পর্ক।
+        </div>
+        
+        <div>
+          <i class="fas fa-children"></i> 
+          <strong>সন্তান গঠন:</strong><br>
+          সন্তানকে আল্লাহর মনোনীত খলিফা হিসেবে গড়ে তোলার দৃঢ় ইচ্ছা।
+        </div>
       </div>
-      <p style="margin-top:1.5rem;text-align:center;border-top:1px solid var(--border);padding-top:1rem"><i class="fas fa-quote-right"></i> “নিশ্চয় আমার সালাত, আমার কুরবানী, আমার জীবন ও আমার মৃত্যু আল্লাহর জন্য” — আল-আন‘আম ১৬২</p>
+
+      <hr style="margin:1.5rem 0;border:1px solid var(--border);">
+
+      <h4>🤝 আমার পক্ষ থেকে তার প্রতি মুআমালাত</h4>
+      <ul>
+        <li>
+          ব্যক্তিগত বা দুনিয়াবী কোন ইচ্ছা পূরণের জন্য আমি কখনো তাকে চাপ প্রয়োগ করবো না।
+        </li>
+        <li>
+          সে যেন নিজের ইচ্ছা ও সম্মান বজায় রেখে জীবন যাপন করতে পারে—এটা আমি নিশ্চিত করবো।
+        </li>
+        <li>
+          আমি তাকে আল্লাহর জন্য ভালোবাসবো; দুনিয়াবী ক্ষতির কারণে তার প্রতি রাগ বা ক্ষোভ পোষণ করবো না।
+        </li>
+        <li>
+          তবে আখেরাতের ক্ষতির ক্ষেত্রে আমরা সংশোধনের পথ গ্রহণ করবো।
+        </li>
+      </ul>
+
+      <h4 style="margin-top:1.5rem">💖 আমার প্রতি তার মুআমালাত</h4>
+      <ul>
+        <li>
+          আল্লাহর সন্তুষ্টির জন্য করা কাজগুলোতে সে সর্বোচ্চ সহযোগিতা করবে।
+        </li>
+        <li>
+          সন্তানকে দ্বীনদার ও আদর্শ মানুষ হিসেবে গড়ে তোলার দৃঢ় ইচ্ছা রাখবে।
+        </li>
+        <li>
+          আমি যদি আল্লাহর সন্তুষ্টির বিপরীত কোন পথে যাই, সে আমাকে সংশোধন করবে।
+        </li>
+      </ul>
+
+      <p style="margin-top:1.5rem;text-align:center;border-top:1px solid var(--border);padding-top:1rem">
+        <i class="fas fa-quote-right"></i> 
+        “নিশ্চয় আমার সালাত, আমার কুরবানী, আমার জীবন ও আমার মৃত্যু আল্লাহর জন্য” — আল-আন‘আম ১৬২
+      </p>
+
     </div>
   </div>
 </section>
@@ -313,70 +670,89 @@ nav{
   <div class="container">
     <div class="sec-title">📞 যোগাযোগ ও সোশ্যাল নেটওয়ার্ক</div>
     <div class="card" style="text-align:center">
-      
-      <p>
-        <i class="fas fa-envelope"></i> Email: 
-        <a href="mailto:tasnimmuhammad51@gmail.com" style="color:var(--cyan)">tasnimmuhammad51@gmail.com</a>
-      </p>
-
-      <p>
-        <i class="fab fa-whatsapp"></i> WhatsApp: 
-        <a href="https://wa.me/8801732029902" style="color:var(--cyan)">+8801732029902</a> 
-        &nbsp;|&nbsp; 
-        <i class="fas fa-phone-alt"></i> Phone: +8801330989762
-      </p>
-
+      <p><i class="fas fa-envelope"></i> Email: <a href="mailto:tasnimmuhammad51@gmail.com" style="color:var(--cyan)">tasnimmuhammad51@gmail.com</a></p>
+      <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/8801732029902" style="color:var(--cyan)">+8801732029902</a> &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +8801330989762</p>
       <div class="social-icons" style="margin:1.5rem 0">
         <a href="https://github.com/MD-TASNEM" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://www.facebook.com/profile.php?id=61574382370566" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.linkedin.com/in/md-tasnem-%E0%A6%AE%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%9C-161201294/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://www.youtube.com/@%E0%A6%AE%E0%A7%8B%E0%A6%83%E0%A6%A4%E0%A6%BE%E0%A6%B8%E0%A6%A8%E0%A6%BF%E0%A6%AE%E0%A6%AE%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%9C" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="https://md-tasnem.github.io/MD.TASNEM-AL-HUJAIFA-MIRAZ./" target="_blank"><i class="fas fa-globe"></i></a>
-        
       </div>
-
-      <p><strong>অফিসিয়াল ওয়েবসাইট: </strong> MD.TASNEM AL-HUJAIFA MIRAZ কর্তৃক নির্মিত</p>
-      <div style="margin-top:1rem">
-        <i class="fas fa-map-pin"></i> ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া, বাংলাদেশ।
-      </div>
-      
+      <p><strong>অফিসিয়াল ওয়েবসাইট:</strong> MD.TASNEM AL-HUJAIFA MIRAZ কর্তৃক নির্মিত</p>
+      <div><i class="fas fa-map-pin"></i> ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া, বাংলাদেশ।</div>
     </div>
   </div>
 </section>
 
-<footer style="padding:2rem;text-align:center;border-top:1px solid var(--border);color:var(--muted)">
-  <div style="font-family:'Playfair Display';color:var(--gold);font-size:1.2rem">মো: তাসনিম আল-হুজাইফা মিরাজ । </div>
-  <p>© ২০২৬ | সর্বস্বত্ব সংরক্ষিত | </p>
+<footer>
+  <div style="font-family:'Playfair Display';color:var(--gold);font-size:1.2rem">মো: তাসনিম আল-হুজাইফা মিরাজ</div>
+  <p>© ২০২৬ | পূর্ণাঙ্গ জীবনবৃত্তান্ত | প্রযুক্তি ও দ্বীনের সমন্বয়ে</p>
 </footer>
 
 <script>
-const texts = ["ওয়েব ডেভেলপার", "আরবি সাহিত্য গবেষক", "আকাঙ্ক্ষিত দাঈ", "Islamic Technologist", "সেবক ও দ্বীন প্রচারক"];
-let count = 0, index = 0;
-const typedSpan = document.getElementById('typed');
-function type(){
-  if(count === texts.length) count = 0;
-  let current = texts[count];
-  let letter = current.slice(0, ++index);
-  typedSpan.textContent = letter;
-  if(letter.length === current.length){
-    setTimeout(()=>{ index=0; count++; setTimeout(type, 1400); }, 2000);
-  } else { setTimeout(type, 70); }
-}
-window.onload = () => { type(); };
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = 'translateY(0)';
-    }
+  // Typing Animation
+  const texts = ["ওয়েব ডেভেলপার", "আরবি সাহিত্য গবেষক", "আকাঙ্ক্ষিত দাঈ", "Islamic Technologist", "সেবক ও দ্বীন প্রচারক"];
+  let count = 0, index = 0;
+  const typedSpan = document.getElementById('typed');
+  function type(){
+    if(count === texts.length) count = 0;
+    let current = texts[count];
+    let letter = current.slice(0, ++index);
+    typedSpan.textContent = letter;
+    if(letter.length === current.length){
+      setTimeout(()=>{ index=0; count++; setTimeout(type, 1400); }, 1800);
+    } else { setTimeout(type, 70); }
+  }
+  window.onload = () => { type(); };
+
+  // Intersection observer for cards
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.card').forEach(card => {
+    card.style.opacity = 0;
+    card.style.transform = 'translateY(35px)';
+    card.style.transition = 'all 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+    observer.observe(card);
   });
-}, { threshold: 0.1 });
-document.querySelectorAll('.card').forEach(card => {
-  card.style.opacity = 0;
-  card.style.transform = 'translateY(40px)';
-  card.style.transition = 'all 0.8s cubic-bezier(0.25,0.1,0.25,1)';
-  observer.observe(card);
-});
+
+  // DARK MODE TOGGLE
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const themeText = document.getElementById('themeText');
+  
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.body.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      themeIcon.className = 'fas fa-sun';
+      themeText.innerText = 'লাইট মোড';
+    } else {
+      document.body.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      themeIcon.className = 'fas fa-moon';
+      themeText.innerText = 'ডার্ক মোড';
+    }
+  }
+  
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') setTheme('dark');
+  else if (savedTheme === 'light') setTheme('light');
+  else {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+    else setTheme('light');
+  }
+  
+  themeToggle.addEventListener('click', () => {
+    if (document.body.classList.contains('dark')) setTheme('light');
+    else setTheme('dark');
+  });
 </script>
 </body>
 </html>
