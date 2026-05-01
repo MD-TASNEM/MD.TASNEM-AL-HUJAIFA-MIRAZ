@@ -1,7 +1,7 @@
 
 # মো: তাসনিম আল-হুজাইফা মিরাজ | পূর্ণাঙ্গ জীবনবৃত্তান্ত (CV Website)
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://md-tasnem.github.io/MD.TASNEM-AL-HUJAIFA-MIRAZ./)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://md-tasnem.github.io/MD.TASNEM-AL-HUJAIFA-MIRAZ/)
 [![Dark Mode](https://img.shields.io/badge/Theme-Dark%20%26%20Light-blue?style=for-the-badge)](#)
 [![Responsive](https://img.shields.io/badge/Responsive-Yes-orange?style=for-the-badge)](#)
 
@@ -60,7 +60,7 @@ project/
 
 ### ১. লোকালি রান করা (Run Locally)
 ```bash
-git clone https://github.com/MD-TASNEM/MD.TASNEM-AL-HUJAIFA-MIRAZ..git
+git clone https://github.com/MD-TASNEM/MD.TASNEM-AL-HUJAIFA-MIRAZ.git
 cd MD.TASNEM-AL-HUJAIFA-MIRAZ.
 # শুধু index.html ব্রাউজারে ওপেন করুন
 ```
